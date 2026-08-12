@@ -1,0 +1,4 @@
+window.BANRAI_CONFIG = {
+  supabaseUrl: 'https://uoguqrloxrzbqlxkbwep.supabase.co',
+  supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVvZ3VxcmxveHJ6YnFseGtid2VwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTA2NjAsImV4cCI6MjEwMjA2NjY2MH0.GVPWbjLkkU9wMtVybK7z5_izQ5LmbPz4c5Bb3Zs_B5k'
+};
