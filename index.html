@@ -10,36 +10,13 @@
 </head>
 <body>
   <div id="app">
-    <div id="login-screen" class="screen active">
-      <div class="login-card">
-        <div class="logo">🌾</div><p class="eyebrow">BAN RAI VILLAGE</p>
-        <h1>หมู่บ้านการงานอาชีพ</h1>
-        <p class="subtitle">เกม RPG สำหรับนักเรียน ป.5<br>เรียนรู้ • ปลูก • ค้าขาย • ร่วมมือกัน</p>
-        <label for="room-code">รหัสหมู่บ้าน</label>
-        <input id="room-code" maxlength="16" value="BANRAI-01" autocomplete="off">
-        <label for="player-name">ชื่อที่ใช้ในเกม</label>
-        <input id="player-name" maxlength="18" placeholder="เช่น น้องต้น" autocomplete="off">
-        <div class="avatar-title">เลือกตัวละคร</div><div id="avatar-picker" class="avatar-picker"></div>
-        <button id="start-btn" class="primary-btn">🎮 เข้าหมู่บ้าน</button>
-        <p id="connection-hint" class="hint">กำลังเตรียมระบบหมู่บ้าน...</p>
-      </div>
-    </div>
-    <div id="game-screen" class="screen">
-      <header class="topbar"><div class="brand"><span>🌾</span><strong>Ban Rai Village</strong></div>
-        <div id="connection-status" class="connection-status">⚪ Offline</div>
-        <div class="stats"><span>⭐ Lv.<b id="level">1</b></span><span>⚡ <b id="xp">0</b>/<b id="xp-next">100</b></span><span>🪙 <b id="coins">100</b></span></div>
-        <button id="help-btn" class="icon-btn">?</button></header>
-      <main class="game-wrap"><div class="canvas-shell"><canvas id="game" width="960" height="600"></canvas>
-        <div id="toast" class="toast"></div>
+    <div id="login-screen" class="screen active"><div class="login-card"><div class="logo">🌾</div><p class="eyebrow">BAN RAI VILLAGE</p><h1>หมู่บ้านการงานอาชีพ</h1><p class="subtitle">เกม RPG สำหรับนักเรียน ป.5<br>เรียนรู้ • ปลูก • ค้าขาย • ร่วมมือกัน</p><label for="room-code">รหัสหมู่บ้าน</label><input id="room-code" maxlength="16" value="BANRAI-01" autocomplete="off"><label for="player-name">ชื่อที่ใช้ในเกม</label><input id="player-name" maxlength="18" placeholder="เช่น น้องต้น" autocomplete="off"><div class="avatar-title">เลือกตัวละคร</div><div id="avatar-picker" class="avatar-picker"></div><button id="start-btn" class="primary-btn">🎮 เข้าหมู่บ้าน</button><p id="connection-hint" class="hint">กำลังเตรียมระบบหมู่บ้าน...</p></div></div>
+    <div id="game-screen" class="screen"><header class="topbar"><div class="brand"><span>🌾</span><strong>Ban Rai Village</strong></div><div id="connection-status" class="connection-status">⚪ Offline</div><div class="stats"><span>⭐ Lv.<b id="level">1</b></span><span>⚡ <b id="xp">0</b>/<b id="xp-next">100</b></span><span>🪙 <b id="coins">100</b></span></div><button id="help-btn" class="icon-btn">?</button></header>
+      <main class="game-wrap"><div class="canvas-shell"><canvas id="game" width="960" height="600"></canvas><div id="toast" class="toast"></div>
         <div id="question-modal" class="modal hidden"><div class="modal-card"><div class="modal-top"><span id="question-category">📚 ภารกิจ</span><button id="close-question">×</button></div><h2 id="question-text"></h2><div id="answers" class="answers"></div><div id="question-result" class="question-result"></div></div></div>
         <div id="shop-modal" class="modal hidden"><div class="modal-card shop-card"><div class="modal-top"><span>🏪 ร้านค้าหมู่บ้าน</span><button id="close-shop">×</button></div><p>ใช้เหรียญซื้อเมล็ดพันธุ์ แล้วนำไปปลูกในแปลงของคุณ</p><div id="shop-items" class="shop-items"></div></div></div>
         <div id="help-modal" class="modal hidden"><div class="modal-card"><div class="modal-top"><span>📖 วิธีเล่น</span><button id="close-help">×</button></div><ul class="help-list"><li>ใช้ <b>WASD / ปุ่มลูกศร</b> เดิน</li><li>เดินเข้า <b>👩‍🏫 ศูนย์การเรียนรู้</b> เพื่อทำภารกิจ</li><li>ตอบถูกเพื่อรับ ⭐ XP และ 🪙 เหรียญ</li><li>เดินเข้า <b>🏪 ร้านค้า</b> เพื่อซื้อเมล็ดพันธุ์</li><li>เดินไปที่แปลงผักแล้วกด <b>Space</b> เพื่อปลูก/รดน้ำ/เก็บเกี่ยว</li><li>เมื่อเปิด Supabase แล้ว จะเห็นเพื่อนในหมู่บ้านแบบ Real-time</li></ul></div></div>
-      </div>
-      <aside class="side-panel"><section class="player-card"><div id="player-avatar" class="big-avatar">🧑‍🌾</div><div><strong id="player-name-label">ผู้เล่น</strong><small>ชาวสวนฝึกหัด</small></div></section>
-        <section class="mission-card"><div class="section-title">🎯 ภารกิจวันนี้</div><div id="mission-list"></div></section>
-        <section class="leader-card"><div class="section-title">🏆 อันดับในหมู่บ้าน</div><div id="leaderboard"></div></section>
-        <div id="online-count" class="online-note">👥 ผู้เล่นในหมู่บ้าน: 0</div></aside></main>
-      <footer class="controls"><span>⌨️ WASD / ลูกศร = เดิน</span><span>SPACE = ทำกิจกรรม</span><span>👥 Multiplayer = Supabase Realtime</span></footer>
-    </div>
-  </div><script src="game.js"></script>
+      </div><aside class="side-panel"><section class="player-card"><div id="player-avatar" class="big-avatar">🧑‍🌾</div><div><strong id="player-name-label">ผู้เล่น</strong><small>ชาวสวนฝึกหัด</small></div></section><section class="mission-card"><div class="section-title">🎯 ภารกิจวันนี้</div><div id="mission-list"></div></section><section class="leader-card"><div class="section-title">🏆 อันดับในหมู่บ้าน</div><div id="leaderboard"></div></section><div id="online-count" class="online-note">👥 ผู้เล่นในหมู่บ้าน: 0</div></aside></main>
+      <footer class="controls"><span>⌨️ WASD / ลูกศร = เดิน</span><span>SPACE = ทำกิจกรรม</span><span>👥 Multiplayer = Supabase Realtime</span></footer></div>
+  </div><script src="game.js"></script><script src="multiplayer.js"></script>
 </body></html>
